@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MVC_PROJECT_1278941.Models.Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-12" id="placeholder">
+
+        @Html.Action("ModelsTable", "Departments")
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script>
+        $(document).on("click", "button.del", function () {
+            var id = $(this).data("pk");
+            var trP = $(this).closest('tr');
+            var trS = trP.next();
+            if (confirm("Are you sure to delete?\nDepartment will be deleted.")) {
+                $.ajax({
+                    url: "/Departments/Delete/" + id,
+                    method: "post",
+                    dataType: "json",
+                    success: r => {
+                        if (r.success == true) {
+                            trP.remove();
+                        }
+                    }
+                })
+            }
+        });
+    </script>
+}
+@section styles
+{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+}

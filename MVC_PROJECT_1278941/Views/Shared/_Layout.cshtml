@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag._ Dream IT</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    <style>
+        body {
+            padding-top: 70px;
+            background-color: #d7d7d8;
+        }
+    </style>
+    @RenderSection("styles", false)
+</head>
+<body>
+    <div class="navbar navbar-dark bg-dark navbar-expand-md fixed-top shadow-sm">
+        <div class="container-fluid">
+            @Html.ActionLink("MVC Project", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <div class="navbar-collapse collapse ">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        @Html.ActionLink("Home", "Index", "Home", new { }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Departments", "Index", "Departments", new { }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Applicants", "Index", "Applicants", new { }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Aggregates", "Index", "Aggregates", new { }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Grouping by name", "GroupingByName", "Groupings", new { }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Grouping by degree", "GroupingByDegree", "Groupings", new { }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav ms-auto">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Logout", "Logout", "Account", new { }, new { @class = "nav-link" })
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Register", "Register", "Account", new { }, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Login", "Login", "Account", new { }, new { @class = "nav-link" })
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid body-content" style="min-height:650px">
+        @RenderBody()
+
+    </div>
+    <footer class="container-fluid text-center">
+        <p>&copy;Welcome to My Project || 2024</p>
+    </footer>
+    @RenderSection("scripts", false)
+
+
+</body>
+</html>

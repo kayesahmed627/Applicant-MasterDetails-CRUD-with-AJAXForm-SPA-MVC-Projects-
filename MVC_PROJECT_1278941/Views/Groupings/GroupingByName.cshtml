@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MVC_PROJECT_1278941.ViewModel.GroupedData>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Grouping by Name</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Data</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>
+                    @x.Key
+                </td>
+                <td>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Institute</th>
+                                <th>Passing Year</th>
+                                <th>Degree</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var s in x.Data)
+                            {
+                                <tr>
+                                    <td>@s.Institute</td>
+                                    <td>@s.PassingYear</td>
+                                    <td>@s.Degree</td>
+                                </tr>
+                            }               
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+

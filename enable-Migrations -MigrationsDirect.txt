@@ -1,0 +1,10 @@
+enable-Migrations -MigrationsDirectory "Migrations\ContextB" -ContextTypeName MVC_PROJECT_1278941.Models.ApplicantDbContext
+Add-Migration -configuration MVC_PROJECT_1278941.Migrations.ContextB.Configuration InitialCreate
+Update-database -configuration MVC_PROJECT_1278941.Migrations.ContextB.Configuration
+
+
+
+enable-Migrations -MigrationsDirectory "Migrations\ContextA" -ContextTypeName MVC_PROJECT_1278941.Models.ApplicantDbContext
+Add-Migration -configuration MVC_PROJECT_1278941.Migrations.ContextA.Configuration InitialCreate
+Update-database -configuration MVC_PROJECT_1278941.Migrations.ContextA.Configuration
+

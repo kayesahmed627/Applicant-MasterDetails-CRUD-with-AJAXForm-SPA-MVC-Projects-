@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MVC_PROJECT_1278941.Models.Applicant>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h3>Aggregate Functions</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Aggregate function</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Count</td>
+                    <td>@Model.Count()</td>
+                </tr>
+                <tr>
+                    <td>Min</td>
+                    <td>Lowest Pay Rate:@Model.Min(x => x.PayRate)</td>
+                </tr>
+                <tr>
+                    <td>Max</td>
+                    <td>Heighest Pay Rate:@Model.Max(x => x.PayRate)</td>
+                </tr>
+                <tr>
+                    <td>Average</td>
+                    <td>Average Pay Rate:@Model.Average(x => x.PayRate)</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>Total Pay Rate:@Model.Sum(x => x.PayRate)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
